@@ -1,0 +1,73 @@
+header {
+  background-color: pink;
+
+}
+
+a {
+  text-decoration: none;
+}
+nav {
+  display: flex;
+  gap: 30px;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+
+}
+
+.logo {
+  width: 250px;
+}
+
+.navlinks {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-around;
+  flex-grow: 2;
+  padding-right: 10px;
+
+}
+
+ul {
+  list-style: none;
+}
+
+.link a:link, .link a:visited, .link a:hover {
+  color: white;
+
+  font-size: 23px;
+}
+
+.link a {
+  transition: transform 1s ease-out;
+
+}
+
+
+
+.link {
+  position: relative;
+}
+
+.link::after {
+  content: "";
+  font-weight: bold;
+  background-color: white;
+  width: 0%;
+  height: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transition: width 1s ease-in;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+
+.iconlinks {
+  display: flex;
+  gap: 20px;
+}
