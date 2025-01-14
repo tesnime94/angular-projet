@@ -1,0 +1,31 @@
+footer {
+  background-color: pink;
+  position: fixed;
+  bottom: 0;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.footer-content p {
+  margin: 10px 0;
+  font-size: 14px;
+}
+
+.footer-content a {
+  color: #1da1f2;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}
