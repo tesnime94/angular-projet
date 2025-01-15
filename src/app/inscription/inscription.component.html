@@ -1,1 +1,50 @@
-<p>inscription works!</p>
+<div class="inscription-body">
+<div class="form-register">
+  <H1> Inscription </H1>
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="group">
+      <label for="name">Nom</label>
+      <input id="name" type="text" formControlName="name" placeholder="Entrez votre nom" />
+    </div>
+
+    <div class="group">
+      <label for="surname">Prénom</label>
+      <input id="surname" type="text" formControlName="surname" placeholder="Entrez votre prénom" />
+    </div>
+
+    <div class="group">
+      <label for="birth">Date de naissance</label>
+      <input id="birth" type="date" formControlName="birth" />
+    </div>
+
+    <div class="group">
+      <label for="address">Adresse</label>
+      <input id="address" type="text" formControlName="address" placeholder="Entrez votre adresse" />
+    </div>
+
+    <div class="group">
+      <label for="phoneNumber">Numéro de téléphone</label>
+      <input
+        id="phoneNumber"
+        type="text"
+        formControlName="phoneNumber"
+        placeholder="Entrez votre numéro de téléphone"
+      />
+    </div>
+
+    <div class="group">
+      <label for="email">Email</label>
+      <input id="email" type="email" formControlName="email" placeholder="Entrez votre email" />
+    </div>
+
+    <div class="group">
+      <label for="password">Mot de passe</label>
+      <input id="password" type="password" formControlName="password" placeholder="Entrez votre mot de passe" />
+    </div>
+
+    <div class="group">
+      <button type="submit">S'inscrire</button>
+    </div>
+  </form>
+</div>
+</div>
