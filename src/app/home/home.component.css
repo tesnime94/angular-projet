@@ -18,6 +18,7 @@ body {
 .text.home-page {
 }
 .text h1 {
+  margin-top: 7%;
   margin-left: 25%;
   font-size: 75px;
   line-height: 2;
