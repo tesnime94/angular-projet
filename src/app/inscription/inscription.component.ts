@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import {Router} from '@angular/router';
+import {UserService} from '../user.service';
 
 @Component({
   selector: 'app-inscription',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], // Ajout des modules nécessaires
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.css'
 })
@@ -20,8 +22,26 @@ export class InscriptionComponent {
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
+  constructor(private userService: UserService, private router: Router) {
+  }
+
   public onSubmit(): void {
-    // Affiche les valeurs du formulaire dans la console
-    console.log(this.registerForm.value);
+    if (this.registerForm.valid) {
+      const formData = this.registerForm.value;
+      console.log('Données soumises :', formData);
+
+      // Utilisation du service pour envoyer les données
+      this.userService.registerUser(formData).subscribe({
+        next: (response) => {
+          console.log('Inscription réussie :', response);
+          this.router.navigate(['/login']); // Redirection après succès
+        },
+        error: (error) => {
+          console.error("Erreur lors de l'inscription :", error);
+        },
+      });
+    } else {
+      this.registerForm.markAllAsTouched(); // Affiche les erreurs si le formulaire est invalide
+    }
   }
 }
