@@ -1,5 +1,7 @@
 header {
-  background-color: pink;
+  /*background-color: #d4acac;*/
+  /*background-color: #d4afa5;*/
+  background-color: #d3aea5;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
 
@@ -18,7 +20,7 @@ nav {
 }
 
 .logo {
-  width: 250px;
+  width: 150px;
 }
 
 .navlinks {
