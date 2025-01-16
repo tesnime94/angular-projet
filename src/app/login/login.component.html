@@ -1,1 +1,42 @@
-<p>login works!</p>
+<div class="login-body">
+<div class="form_connexion">
+  <H1>Connexion </H1>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="groupLogin">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="text"
+        formControlName="email"
+        placeholder="Entrez votre email"
+      />
+      <small *ngIf="loginForm.get('email')?.hasError('required') && loginForm.get('email')?.touched">
+        L'email est requis.
+      </small>
+      <small *ngIf="loginForm.get('email')?.hasError('email') && loginForm.get('email')?.touched">
+        Veuillez entrer une adresse email valide.
+      </small>
+    </div>
+
+    <div class="groupLogin">
+      <label for="password">Mot de passe</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Entrez votre mot de passe"
+      />
+      <small *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">
+        Le mot de passe est requis.
+      </small>
+    </div>
+
+    <div class="groupLogin">
+      <button type="submit">Se connecter</button>
+      <button type="button" (click)="navigateToInscription()" class="ins">
+        Inscription
+      </button>
+    </div>
+  </form>
+</div>
+</div>

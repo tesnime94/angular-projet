@@ -3,7 +3,6 @@
   padding-bottom: 30px;
 }
 .form-register {
-  color: #fff;
   margin-left: 20px;
   padding-left: 50px;
   padding-right: 50px;
@@ -17,7 +16,15 @@
   margin-left: 400px;
   max-height: 550px; /* Hauteur maximale du conteneur du formulaire */
   overflow-y: auto; /* Ajoute une barre de défilement verticale si le contenu dépasse la hauteur maximale */
+  color: indianred;
 }
+.form-register h1{
+  color:white;
+  margin-bottom: 10px;
+  text-align: center; /* Centre le titre */
+
+}
+
 ::-webkit-scrollbar {
   width: 12px; /* Largeur de la barre de défilement */
 }
@@ -29,7 +36,7 @@
 label {
   display: block;
   font-size: 16px;
-  color: pink;
+  color: white;
   margin-bottom: 5px;
 }
 

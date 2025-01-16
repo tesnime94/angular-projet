@@ -1,0 +1,80 @@
+/* Structure principale */
+.login-body {
+  padding-top: 180px;
+  padding-bottom: 30px;
+}
+
+/* Style du conteneur du formulaire */
+.form_connexion {
+  color: #fff;
+  margin: 0 auto; /* Centre horizontalement le formulaire */
+  padding: 20px 50px; /* Espace intérieur */
+  width: 400px; /* Largeur fixe pour un alignement stable */
+  background-color: #c1958e6e;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style du titre */
+.form_connexion h1 {
+  margin-bottom: 20px;
+  text-align: center; /* Centre le titre */
+  color: white; /* Couleur du texte */
+}
+
+/* Style général des groupes de champs */
+.groupLogin {
+  display: flex;
+  flex-direction: column; /* Empile label et input */
+  margin-bottom: 15px; /* Espacement entre chaque champ */
+}
+
+/* Style des labels */
+.groupLogin label {
+  margin-bottom: 5px; /* Espacement entre le label et le champ */
+  white: pink; /* Couleur personnalisée des labels */
+  font-weight: bold; /* Met en gras */
+}
+
+/* Style des champs de saisie */
+.groupLogin input {
+  width: 100%; /* Le champ prend toute la largeur disponible */
+  padding: 10px; /* Ajoute de l'espace intérieur */
+  border: 1px solid #ccc; /* Bordure simple */
+  border-radius: 5px; /* Coins arrondis */
+  box-sizing: border-box; /* Inclut les bordures et le padding dans la largeur totale */
+  font-size: 14px; /* Taille de la police */
+}
+
+/* Style des messages d'erreur */
+.groupLogin small {
+  color: indianred; /* Couleur rouge pour les erreurs */
+  font-size: 12px; /* Taille réduite */
+  margin-top: 5px; /* Espacement avec le champ */
+}
+
+/* Style des boutons */
+.groupLogin:last-child {
+  display: flex; /* Place les boutons côte à côte */
+  justify-content: space-between; /* Ajoute de l'espace entre les boutons */
+}
+
+.groupLogin button {
+  padding: 10px 20px; /* Ajoute de l'espace autour du texte */
+  border: none; /* Retire les bordures */
+  border-radius: 5px; /* Coins arrondis */
+  background-color: #d3aea5; /* Couleur principale des boutons */
+  color: white; /* Texte en blanc */
+  cursor: pointer; /* Change le curseur au survol */
+  transition: opacity 0.3s ease; /* Transition douce au survol */
+}
+
+/* Style spécifique du bouton d'inscription */
+.groupLogin button.ins {
+  margin-top: 10px;
+  background-color: lightgrey; /* Couleur différente */
+}
+
+.groupLogin button:hover {
+  opacity: 0.9; /* Effet au survol */
+}

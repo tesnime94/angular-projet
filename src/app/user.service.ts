@@ -15,4 +15,9 @@ export class UserService {
     console.log('Envoi des données au backend :', data); // Vérifiez que les données arrivent ici
     return this.http.post(this.apiUrl, data);
   }
+
+  login(email: string, password: string): Observable<number> {
+    const url = `${this.apiUrl}/login?email=${email}&password=${password}`;
+    return this.http.get<number>(url); // Retourne un Observable du type attendu
+  }
 }
