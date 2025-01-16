@@ -12,6 +12,7 @@ export class UserService {
 
   // Méthode pour envoyer les données du formulaire au backend
   registerUser(data: any): Observable<any> {
+    console.log('Envoi des données au backend :', data); // Vérifiez que les données arrivent ici
     return this.http.post(this.apiUrl, data);
   }
 }

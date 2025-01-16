@@ -26,6 +26,7 @@ export class InscriptionComponent {
   }
 
   public onSubmit(): void {
+    console.log('onSubmit déclenché'); // Vérifiez si ce message s'affiche
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
       console.log('Données soumises :', formData);
@@ -41,6 +42,7 @@ export class InscriptionComponent {
         },
       });
     } else {
+      console.log("erreur d'envoi du form"); // Vérifiez si ce message s'affiche
       this.registerForm.markAllAsTouched(); // Affiche les erreurs si le formulaire est invalide
     }
   }
