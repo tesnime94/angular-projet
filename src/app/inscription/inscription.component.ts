@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import {Router} from '@angular/router';
 import {UserService} from '../user.service';
@@ -12,21 +12,29 @@ import {UserService} from '../user.service';
   styleUrl: './inscription.component.css'
 })
 export class InscriptionComponent {
-  public registerForm = new FormGroup({
-    name: new FormControl('', Validators.required),
-    surname: new FormControl('', Validators.required),
-    birth: new FormControl('', Validators.required),
-    address: new FormControl('', Validators.required),
-    phoneNumber: new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]),
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-  });
+  public registerForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) {
+  constructor(
+    private fb: FormBuilder, // Utilisation de FormBuilder pour créer le formulaire
+    private userService: UserService,
+    private router: Router
+  ) {
+    // Initialisation du formulaire réactif
+    this.registerForm = this.fb.group({
+      name: ['', Validators.required],
+      surname: ['', Validators.required],
+      birth: ['', Validators.required],
+      address: ['', Validators.required],
+      phoneNumber: [
+        '',
+        [Validators.required, Validators.pattern('^[0-9]*$')]
+      ],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
   public onSubmit(): void {
-    console.log('onSubmit déclenché'); // Vérifiez si ce message s'affiche
     if (this.registerForm.valid) {
       const formData = this.registerForm.value;
       console.log('Données soumises :', formData);
@@ -39,11 +47,11 @@ export class InscriptionComponent {
         },
         error: (error) => {
           console.error("Erreur lors de l'inscription :", error);
-        },
+        }
       });
     } else {
-      console.log("erreur d'envoi du form"); // Vérifiez si ce message s'affiche
-      this.registerForm.markAllAsTouched(); // Affiche les erreurs si le formulaire est invalide
+      console.log("Erreur : le formulaire est invalide");
+      this.registerForm.markAllAsTouched(); // Marque tous les champs comme touchés pour afficher les erreurs
     }
   }
 }

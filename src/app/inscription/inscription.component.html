@@ -1,71 +1,109 @@
 <div class="inscription-body">
-<div class="form-register">
-  <h1> Inscription </h1>
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <div class="group">
-      <label for="name">Nom</label>
-      <input id="name" type="text" formControlName="name" placeholder="Entrez votre nom" />
-      <small *ngIf="registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched">
-        Le nom est requis.
-      </small>
-    </div>
+  <div class="form-register">
+    <h1> Inscription </h1>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="group">
+        <label for="name">Nom</label>
+        <input
+          id="name"
+          type="text"
+          formControlName="name"
+          placeholder="Entrez votre nom"
+        />
+        <small *ngIf="registerForm.get('name')?.hasError('required') && registerForm.get('name')?.touched">
+          Le nom est requis.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="surname">Prénom</label>
-      <input id="surname" type="text" formControlName="surname" placeholder="Entrez votre prénom" />
-      <small *ngIf="registerForm.get('surname')?.hasError('required') && registerForm.get('name')?.touched">
-        Le nom est requis.
-      </small>
-    </div>
+      <div class="group">
+        <label for="surname">Prénom</label>
+        <input
+          id="surname"
+          type="text"
+          formControlName="surname"
+          placeholder="Entrez votre prénom"
+        />
+        <small *ngIf="registerForm.get('surname')?.hasError('required') && registerForm.get('surname')?.touched">
+          Le prénom est requis.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="birth">Date de naissance</label>
-      <input id="birth" type="date" formControlName="birth" />
-    </div>
+      <div class="group">
+        <label for="birth">Date de naissance</label>
+        <input id="birth" type="date" formControlName="birth" />
+        <small *ngIf="registerForm.get('birth')?.hasError('required') && registerForm.get('birth')?.touched">
+          La date de naissance est requise.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="address">Adresse</label>
-      <input id="address" type="text" formControlName="address" placeholder="Entrez votre adresse" />
-    </div>
+      <div class="group">
+        <label for="address">Adresse</label>
+        <input
+          id="address"
+          type="text"
+          formControlName="address"
+          placeholder="Entrez votre adresse"
+        />
+        <small *ngIf="registerForm.get('address')?.hasError('required') && registerForm.get('address')?.touched">
+          L'adresse est requise.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="phoneNumber">Numéro de téléphone</label>
-      <input
-        id="phoneNumber"
-        type="text"
-        formControlName="phoneNumber"
-        placeholder="Entrez votre numéro de téléphone"
-      />
-      <small *ngIf="registerForm.get('phoneNumber')?.hasError('required') && registerForm.get('phoneNumber')?.touched">
-        Le numéro de téléphone est requis.
-      </small>
-      <small *ngIf="registerForm.get('phoneNumber')?.hasError('pattern') && registerForm.get('phoneNumber')?.touched">
-        Le numéro de téléphone doit être un nombre valide.
-      </small>
-    </div>
+      <div class="group">
+        <label for="phoneNumber">Numéro de téléphone</label>
+        <input
+          id="phoneNumber"
+          type="text"
+          formControlName="phoneNumber"
+          placeholder="Entrez votre numéro de téléphone"
+        />
+        <small
+          *ngIf="registerForm.get('phoneNumber')?.hasError('required') && registerForm.get('phoneNumber')?.touched"
+        >
+          Le numéro de téléphone est requis.
+        </small>
+        <small
+          *ngIf="registerForm.get('phoneNumber')?.hasError('pattern') && registerForm.get('phoneNumber')?.touched"
+        >
+          Le numéro de téléphone doit être un nombre valide.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="email">Email</label>
-      <input id="email" type="email" formControlName="email" placeholder="Entrez votre email" />
-      <small *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
-        L'email est requis.
-      </small>
-    </div>
+      <div class="group">
+        <label for="email">Email</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="Entrez votre email"
+        />
+        <small *ngIf="registerForm.get('email')?.hasError('required') && registerForm.get('email')?.touched">
+          L'email est requis.
+        </small>
+        <small *ngIf="registerForm.get('email')?.hasError('email') && registerForm.get('email')?.touched">
+          L'email doit être valide.
+        </small>
+      </div>
 
-    <div class="group">
-      <label for="password">Mot de passe</label>
-      <input id="password" type="password" formControlName="password" placeholder="Entrez votre mot de passe" />
-      <small *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
-        Le mot de passe est requis.
-      </small>
-      <small *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
-        Le mot de passe doit contenir au moins 6 caractères.
-      </small>
-    </div>
+      <div class="group">
+        <label for="password">Mot de passe</label>
+        <input
+          id="password"
+          type="password"
+          formControlName="password"
+          placeholder="Entrez votre mot de passe"
+        />
+        <small *ngIf="registerForm.get('password')?.hasError('required') && registerForm.get('password')?.touched">
+          Le mot de passe est requis.
+        </small>
+        <small *ngIf="registerForm.get('password')?.hasError('minlength') && registerForm.get('password')?.touched">
+          Le mot de passe doit contenir au moins 6 caractères.
+        </small>
+      </div>
 
-    <div class="group">
-      <button type="submit">S'inscrire</button>
-    </div>
-  </form>
-</div>
+      <div class="group">
+        <button type="submit" [disabled]="registerForm.invalid">S'inscrire</button>
+      </div>
+    </form>
+  </div>
 </div>

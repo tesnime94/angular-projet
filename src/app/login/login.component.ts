@@ -1,23 +1,30 @@
 import { Component } from '@angular/core';
-import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
+import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {UserService} from '../user.service';
-import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  public loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email]),
-    password: new FormControl('', Validators.required),
-  });
+  public loginForm: FormGroup;
 
-  constructor(private userService: UserService, private router: Router) {}
+  constructor(
+    private fb: FormBuilder, // Utilisation de FormBuilder pour simplifier la création du formulaire
+    private userService: UserService,
+    private router: Router
+  ) {
+    // Initialisation du formulaire réactif
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+    });
+  }
 
   public onSubmit(): void {
     if (this.loginForm.valid) {
@@ -46,7 +53,7 @@ export class LoginComponent {
       });
     } else {
       console.log('Formulaire invalide');
-      this.loginForm.markAllAsTouched(); // Affiche les erreurs si le formulaire est invalide
+      this.loginForm.markAllAsTouched(); // Marquer les champs comme touchés pour afficher les erreurs
     }
   }
 

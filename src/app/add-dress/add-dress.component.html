@@ -1,3 +1,74 @@
 <div class="dress-body">
-  <p>add-dress works!</p>
+  <form [formGroup]="dressForm" (ngSubmit)="onSubmit()">
+    <div class="form_connexionr">
+      <div class="groupLogin">
+        <label for="label">Nom</label>
+        <input
+          id="label"
+          type="text"
+          formControlName="label"
+          placeholder="Entrez le nom de la robe"
+        />
+        <small *ngIf="dressForm.get('label')?.hasError('required') && dressForm.get('label')?.touched">
+          Le nom est requis.
+        </small>
+      </div>
+
+      <div class="groupLogin">
+        <label for="description">Description</label>
+        <input
+          id="description"
+          type="text"
+          formControlName="description"
+          placeholder="Entrez la description"
+        />
+        <small *ngIf="dressForm.get('description')?.hasError('required') && dressForm.get('description')?.touched">
+          La description est requise.
+        </small>
+      </div>
+
+      <div class="groupLogin">
+        <label for="size">Taille</label>
+        <input
+          id="size"
+          type="text"
+          formControlName="size"
+          placeholder="Entrez la taille"
+        />
+        <small *ngIf="dressForm.get('size')?.hasError('required') && dressForm.get('size')?.touched">
+          La taille est requise.
+        </small>
+      </div>
+
+      <div class="groupLogin">
+        <label for="price">Prix</label>
+        <input
+          id="price"
+          type="text"
+          formControlName="price"
+          placeholder="Entrez le prix"
+        />
+        <small *ngIf="dressForm.get('price')?.hasError('required') && dressForm.get('price')?.touched">
+          Le prix est requis.
+        </small>
+        <small *ngIf="dressForm.get('price')?.hasError('pattern') && dressForm.get('price')?.touched">
+          Le prix doit être un nombre valide.
+        </small>
+      </div>
+
+      <div class="groupLogin">
+        <label for="image">Image</label>
+        <input
+          id="image"
+          type="file"
+          (change)="onFileChange($event)"
+        />
+      </div>
+
+      <div class="groupLogin">
+        <button type="submit" [disabled]="dressForm.invalid">Ajouter la robe</button>
+      </div>
+    </div>
+  </form>
+
 </div>
