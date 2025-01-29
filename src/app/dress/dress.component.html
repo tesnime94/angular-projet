@@ -1,1 +1,29 @@
-<p>dress works!</p>
+<div class="dress-body">
+  <div class="container py-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h3 class="text-white">NOS ROBES</h3>
+      <button (click)="navigateToAddDress()" class="btn-add">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" class="icon">
+          <path fill="currentColor" d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z"/>
+        </svg>
+        Ajouter
+      </button>
+    </div>
+
+    <div class="row">
+      <div *ngFor="let dress of dresses" class="col-3 my-2">
+        <div class="card shadow-sm h-100">
+          <img [src]="'data:image/jpeg;base64,' + dress.image" [alt]="dress.label" class="card-img-top" />
+          <div class="card-body text-center">
+            <h5 class="card-title mb-2">{{ dress.label }}</h5>
+            <p class="card-text text-muted">{{ dress.description }}</p>
+            <p class="fw-bold text-primary">{{ dress.price | currency: 'EUR' }}</p>
+            <button (click)="addToCart(dress.id)" class="btn btn-success w-100 mt-2">Ajouter au panier</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

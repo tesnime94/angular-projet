@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import axios from 'axios';
-
+import {CommonModule} from '@angular/common';
 
 @Component({
   selector: 'app-add-dress',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './add-dress.component.html',
   styleUrl: './add-dress.component.css'
 })

@@ -1,0 +1,110 @@
+.dress-body {
+  padding-top: 160px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+}
+
+
+.d-flex {
+  display: flex;
+  justify-content: space-between; /* h3 à gauche, bouton à droite */
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #c1958e;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  background-color: #c1958e;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background 0.3s ease-in-out, transform 0.2s;
+  cursor: pointer;
+}
+
+.btn-add:hover {
+  background-color: #a4746d;
+  transform: scale(1.05);
+}
+
+.btn-add svg {
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.col-3 {
+  flex: 1 1 240px;
+  max-width: 240px;
+  margin: 10px;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+
+.card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+
+.card p {
+  font-size: 1rem;
+  color: #333;
+  margin: 5px 0;
+}
+
+.btn-add-cart {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.btn-add-cart:hover {
+  background-color: #218838;
+}
