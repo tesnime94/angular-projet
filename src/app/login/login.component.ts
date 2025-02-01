@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, ReactiveFormsModule} from '@angular/forms';
-import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +15,10 @@ export class LoginComponent {
   public loginForm: FormGroup;
 
   constructor(
-    private fb: FormBuilder, // Utilisation de FormBuilder pour simplifier la création du formulaire
-    private userService: UserService,
+    private fb: FormBuilder,
+    private authService: AuthService, // On utilise AuthService maintenant
     private router: Router
   ) {
-    // Initialisation du formulaire réactif
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required],
@@ -30,30 +29,20 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       const { email, password } = this.loginForm.value;
 
-      console.log('Tentative de connexion avec :', email, password);
-
-      this.userService.login(email as string, password as string).subscribe({
+      this.authService.login(email, password).subscribe({
         next: (response) => {
-          console.log('Réponse du backend :', response);
           if (response !== 0) {
-            // Stockez l'ID utilisateur dans le localStorage
-            localStorage.setItem('userId', response.toString());
-
-            // Redirigez vers la page des robes
-            this.router.navigate(['/dress']);
+            this.router.navigate(['/dress']); // Redirection après connexion réussie
           } else {
-            console.error('Authentification échouée');
             alert('Identifiants incorrects');
           }
         },
-        error: (error) => {
-          console.error('Erreur lors de la connexion :', error);
+        error: () => {
           alert('Une erreur est survenue. Veuillez réessayer plus tard.');
-        },
+        }
       });
     } else {
-      console.log('Formulaire invalide');
-      this.loginForm.markAllAsTouched(); // Marquer les champs comme touchés pour afficher les erreurs
+      this.loginForm.markAllAsTouched();
     }
   }
 
