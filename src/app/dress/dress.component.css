@@ -1,8 +1,9 @@
 .dress-body {
-  padding-top: 160px;
-  padding-bottom: 150px;
+  margin-top: 158px;
+  padding: 30px;
   display: flex;
   justify-content: center;
+  min-height: 100vH;
 }
 
 .container {
