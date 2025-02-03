@@ -6,6 +6,7 @@ import {LoginComponent} from './login/login.component';
 import {AddDressComponent} from './add-dress/add-dress.component';
 import {UserComponent} from './user/user.component';
 import {ModifyComponent} from './modify/modify.component';
+import {PurchaseComponent} from './purchase/purchase.component';
 
 export const routes: Routes = [
   {path :'home', component :HomeComponent},
@@ -15,8 +16,7 @@ export const routes: Routes = [
   { path:'login', component: LoginComponent},
   { path:'user', component:UserComponent},
   { path:'modify', component:ModifyComponent},
-
-  //{ path:'purchase', component:PurchaseComponent}, TODO : Ajouter composant pour le panier
+  { path:'purchase', component:PurchaseComponent},
   {path: '', redirectTo:'home', pathMatch:'full'},
   { path:'**', component: HomeComponent}
 ];
